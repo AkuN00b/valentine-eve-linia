@@ -25,6 +25,8 @@
             background-color: #fff;
             padding: 20px;
             border-radius: 10px;
+            width: 90%; /* Adjust width for responsiveness */
+            max-width: 600px; /* Set maximum width */
         }
         .close-btn {
             position: absolute;
@@ -40,14 +42,47 @@
         #main-content {
             display: none;
         }
+        .video-message {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            display: block;
+            z-index: 100;
+        }
+
+        /* Ensuring all images in the card have the same height */
+        .card-img-top {
+            height: 200px; /* Adjust height to your preference */
+            object-fit: cover; /* Ensures the image covers the entire area of the card */
+        }
+
+        .card-body {
+            height: 100px; /* Optional: make sure card body size is consistent */
+        }
+
+        /* Ensure the cards are above the main content */
+        .card-section {
+            margin-top: 20px;
+        }
+
     </style>
 </head>
 <body>
     <!-- Pop-up video -->
     <div id="popup-video" class="popup">
         <div class="popup-content">
+            <!-- Message above the video -->
+            <div class="video-message">
+                Hai Sayang, kamu harus menonton sampai selesai lagu ini, setelah itu ada tombol yang harus kamu pencet untuk mengarahkan kamu ke tampilan selanjutnya.
+            </div>
             <!-- Video Embed with Autoplay enabled -->
-            <iframe id="youtube-video" width="560" height="315" 
+            <iframe id="youtube-video" width="100%" height="315" 
                 src="https://www.youtube.com/embed/nshdkoeu_fY?autoplay=1&enablejsapi=1" 
                 title="YouTube video player" frameborder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -62,23 +97,12 @@
         <header class="bg-danger text-white text-center py-5">
             <div class="container">
                 <h1>Selamat Hari Valentine, Evelinia Fellin! 💖</h1>
-                <p>Sayang, setiap detik aku semakin yakin kalau cinta kita tuh nggak biasa. Seperti yang ada di lagu ini, *"Bukan Cinta Biasa, yang kumiliki untukmu."* Cinta ini tulus banget, lebih dari sekadar kata-kata. Kamu tuh alasan kenapa aku bisa ngerasain kebahagiaan yang sebenar-benarnya. Nggak ada yang bisa gantiin perasaan ini, karena cintaku buat kamu itu nggak terbatas. Makasih sudah jadi bagian dari hidupku, mengisi hati ini dengan kebahagiaan yang nggak terungkapin. 💖</p>
+                <p>Sayang, setiap detik aku semakin yakin kalau cinta kita tuh nggak biasa. Seperti yang ada di lagu ini, <b>"Bukan Cinta Biasa, yang kumiliki untukmu."</b> Cinta ini tulus banget, lebih dari sekadar kata-kata. Kamu tuh alasan kenapa aku bisa ngerasain kebahagiaan yang sebenar-benarnya. Nggak ada yang bisa gantiin perasaan ini, karena cintaku buat kamu itu nggak terbatas. Makasih sudah jadi bagian dari hidupku, mengisi hati ini dengan kebahagiaan yang nggak terungkapin. 💖</p>
             </div>
         </header>
 
-        <section class="py-5">
-            <div class="container">
-                <h3>Ya, kurang lebih sih sama hehe, kalau itu kata Chat GPT, kalau kata aku.....</h3>
-                <p>
-                    Karena aku suka sama kamu ditambah lagi sayang, tapi kamu juga sayang sama aku, dan membutuhkan aku, mau memiliki aku sebagai laki-laki yang cuma satu dan satu-satunya, aku tambah sayang. Ingat ya sayang, berbeda agama memang jadi halangan, tapi berhubungan bukan jadi halangan, suatu saat nanti akan ada pagar yang harus kita hadapi dan apapun keputusannya kita harus berhubungan baik layaknya manusia biasa tapi kita spesial hehehe. Untuk saat ini ingat saja KITA SAMA-SAMA JALAN DAN BERSAMA DAN SAYANG SATU SAMA LAIN.
-                </p>
-                <p>
-                    Untuk lagunya karena aku suka senandungnya aja, dan memang kita harus buat cinta kita cinta yang tidak biasa, yang bukan hanya sekedar kata-kata juga, tapi juga harus tindakan yang baik dan menyayangi satu sama lain, harus memiliki kebahagiaan juga satu sama lain kita. Makasih udah berjalan 7 bulan 7 hari, sudah menemani aku sayang. Kita akan bertemu suatu saat nanti, YAKINLAH!!!!! Aku akan memelukmu setidaknya SEKALI SAJA AKU MEMELUKMU, I LOVE YOU EVELINIA FELLIN, cayang ku tinta ku >_<
-                </p>
-            </div>
-        </section>
-
-        <section class="gallery py-5">
+        <!-- Card section moved to be right after the header -->
+        <section class="card-section py-5">
             <div class="container">
                 <div class="row">
                     <!-- Image Card 1 - Cinta dan Pasangan -->
@@ -109,6 +133,18 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section class="py-5">
+            <div class="container">
+                <h3>Ya, kurang lebih sih sama hehe, kalau itu kata Chat GPT, kalau kata aku.....</h3>
+                <p>
+                    Karena aku suka sama kamu ditambah lagi sayang, tapi kamu juga sayang sama aku, dan membutuhkan aku, mau memiliki aku sebagai laki-laki yang cuma satu dan satu-satunya, aku tambah sayang. Ingat ya sayang, berbeda agama memang jadi halangan, tapi berhubungan bukan jadi halangan, suatu saat nanti akan ada pagar yang harus kita hadapi dan apapun keputusannya kita harus berhubungan baik layaknya manusia biasa tapi kita spesial hehehe. Untuk saat ini ingat saja KITA SAMA-SAMA JALAN DAN BERSAMA DAN SAYANG SATU SAMA LAIN.
+                </p>
+                <p>
+                    Untuk lagunya karena aku suka senandungnya aja, dan memang kita harus buat cinta kita cinta yang tidak biasa, yang bukan hanya sekedar kata-kata juga, tapi juga harus tindakan yang baik dan menyayangi satu sama lain, harus memiliki kebahagiaan juga satu sama lain kita. Makasih udah berjalan 7 bulan 7 hari, sudah menemani aku sayang. Kita akan bertemu suatu saat nanti, YAKINLAH!!!!! Aku akan memelukmu setidaknya SEKALI SAJA AKU MEMELUKMU, I LOVE YOU EVELINIA FELLIN, cayang ku tinta ku >_<
+                </p>
             </div>
         </section>
 
