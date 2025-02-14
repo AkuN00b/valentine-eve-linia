@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Hari Valentine</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Popup Style */
+        .popup {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+        }
+        .popup-content {
+            position: relative;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        #main-content {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Pop-up video -->
+    <div id="popup-video" class="popup">
+        <div class="popup-content">
+            <!-- Video Embed with Autoplay enabled -->
+            <iframe width="560" height="315" 
+                src="https://www.youtube.com/embed/nshdkoeu_fY?autoplay=1" 
+                title="YouTube video player" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+            </iframe>
+            <button id="close-btn" class="close-btn">Fellin Sayang, tutup video ini!</button>
+        </div>
+    </div>
+
+    <!-- Main content after popup -->
+    <div id="main-content">
+        <header class="bg-danger text-white text-center py-5">
+            <div class="container">
+                <h1>Selamat Hari Valentine, Evelinia Fellin! 💖</h1>
+                <p>Sayangku, setiap detik yang berlalu, aku semakin yakin bahwa cintaku padamu bukan cinta biasa. Seperti yang diungkapkan dalam lagu ini, *"Bukan Cinta Biasa, yang kumiliki untukmu"*. Cinta ini begitu tulus dan dalam, lebih dari sekedar kata-kata. Engkau adalah alasan aku merasakan kebahagiaan yang sesungguhnya. Tidak ada yang bisa menggantikan perasaan ini, karena cintaku padamu tak terhingga. Terima kasih telah hadir dalam hidupku, mengisi setiap sudut hati dengan kasih sayang yang indah. 💖</p>
+            </div>
+        </header>
+
+        <section class="gallery py-5">
+            <div class="container">
+                <div class="row">
+                    <!-- Image Card 1 - Cinta dan Pasangan -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card text-center">
+                            <img src="https://static8.depositphotos.com/1560516/1027/v/450/depositphotos_10273879-stock-illustration-man-woman-and-love-tree.jpg" class="card-img-top" alt="Cinta dan Pasangan">
+                            <div class="card-body">
+                                <p class="card-text">Cinta Sejati</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Image Card 2 - Bunga -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card text-center">
+                            <img src="https://st4.depositphotos.com/13349494/23991/i/600/depositphotos_239918930-stock-photo-top-view-beautiful-tender-carnation.jpg" class="card-img-top" alt="Bunga">
+                            <div class="card-body">
+                                <p class="card-text">Bunga Untukmu</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Image Card 3 - Cokelat -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card text-center">
+                            <img src="https://st2.depositphotos.com/4489556/6791/i/600/depositphotos_67918071-stock-photo-valentines-day-chocolates.jpg" class="card-img-top" alt="Cokelat">
+                            <div class="card-body">
+                                <p class="card-text">Cokelat Manis</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-danger text-white text-center py-3">
+            <div class="container">
+                <p>© 2025 Dibuat dengan cinta dari Gerlando 💖</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Bootstrap JS & Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        // Function to handle closing the popup and showing the main content
+        document.getElementById('close-btn').addEventListener('click', function() {
+            // Hide popup and show main content
+            document.getElementById('popup-video').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
