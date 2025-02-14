@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selamat Hari Valentine - Evelinia Fellin</title>
+    <title>Selamat Hari Valentine</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -46,8 +46,8 @@
     <div id="popup-video" class="popup">
         <div class="popup-content">
             <!-- Video Embed with Autoplay enabled -->
-            <iframe width="560" height="315" 
-                src="https://www.youtube.com/embed/nshdkoeu_fY?autoplay=1" 
+            <iframe id="youtube-video" width="560" height="315" 
+                src="https://www.youtube.com/embed/nshdkoeu_fY?autoplay=1&enablejsapi=1" 
                 title="YouTube video player" frameborder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
@@ -109,8 +109,34 @@
     <!-- Bootstrap JS & Popper -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
 
     <script>
+        // Load the IFrame Player API code asynchronously.
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        // Create a new YouTube player after the API code downloads.
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('youtube-video', {
+                events: {
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        // This function is called when the player state changes
+        function onPlayerStateChange(event) {
+            // If video has finished playing
+            if (event.data == YT.PlayerState.ENDED) {
+                // Show the close button when the video ends
+                document.getElementById('close-btn').style.display = 'block';
+            }
+        }
+
         // Function to handle closing the popup and showing the main content
         document.getElementById('close-btn').addEventListener('click', function() {
             // Hide popup and show main content
