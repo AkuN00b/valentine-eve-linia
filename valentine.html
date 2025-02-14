@@ -61,6 +61,7 @@
             object-fit: contain; /* Ensures the image is not cropped */
         }
 
+        /* Ensuring text inside card-body is centered both vertically and horizontally */
         .card-body {
             height: 100px;
             display: flex;
@@ -112,7 +113,7 @@
                         <div class="card text-center">
                             <img src="https://static8.depositphotos.com/1560516/1027/v/450/depositphotos_10273879-stock-illustration-man-woman-and-love-tree.jpg" class="card-img-top" alt="Cinta dan Pasangan">
                             <div class="card-body">
-                                <p class="card-text">Cinta Sejati</p>
+                                <p class="card-text"><b>Cinta Sejati</b> adalah pengertian, kebahagiaan, dan kesetiaan.</p>
                             </div>
                         </div>
                     </div>
@@ -121,7 +122,7 @@
                         <div class="card text-center">
                             <img src="https://st4.depositphotos.com/13349494/23991/i/600/depositphotos_239918930-stock-photo-top-view-beautiful-tender-carnation.jpg" class="card-img-top" alt="Bunga">
                             <div class="card-body">
-                                <p class="card-text">Bunga Untukmu</p>
+                                <p class="card-text"><b>Cinta Sejati</b> adalah kasih sayang tanpa syarat.</p>
                             </div>
                         </div>
                     </div>
@@ -130,7 +131,7 @@
                         <div class="card text-center">
                             <img src="https://st2.depositphotos.com/4489556/6791/i/600/depositphotos_67918071-stock-photo-valentines-day-chocolates.jpg" class="card-img-top" alt="Cokelat">
                             <div class="card-body">
-                                <p class="card-text">Cokelat Manis</p>
+                                <p class="card-text"><b>Cinta Sejati</b> adalah kebahagiaan yang abadi.</p>
                             </div>
                         </div>
                     </div>
@@ -168,7 +169,7 @@
         tag.src = "https://www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
+    
         // Create a new YouTube player after the API code downloads.
         var player;
         function onYouTubeIframeAPIReady() {
@@ -178,7 +179,7 @@
                 }
             });
         }
-
+    
         // This function is called when the player state changes
         function onPlayerStateChange(event) {
             // If video has finished playing
@@ -187,16 +188,16 @@
                 document.getElementById('close-btn').style.display = 'block';
             }
         }
-
+    
         // Function to handle closing the popup and showing the main content
         document.getElementById('close-btn').addEventListener('click', function() {
             // Hide popup and show main content
             document.getElementById('popup-video').style.display = 'none';
             document.getElementById('main-content').style.display = 'block';
-
+    
             // Restart the video when closing the popup
             player.seekTo(0);
-            player.playVideo();
+            player.playVideo();  // Play video again after closing the popup
         });
     </script>
 </body>
