@@ -3,164 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><b>Cinta Sejati</b> - Evelinia Fellin</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Cinta Sejati - Evelinia Fellin</title> <!-- Tanpa <b> di title -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        /* Popup Style */
-        .popup {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        /* Styling untuk popup */
+        #popup-video {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.7);
-            z-index: 9999;
-        }
-        .popup-content {
-            position: relative;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 560px; /* Match with iframe width */
-        }
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: #f44336;
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            display: none; /* Initially hidden */
-        }
-        #main-content {
-            display: none;
-        }
-
-        /* Video Message */
-        .video-message {
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 16px;
-            text-align: center;
-            margin-bottom: 10px;
-        }
-
-        /* Ensuring all images in the card have the same height */
-        .card-img-top {
-            height: 200px;
-            width: 100%;
-            object-fit: contain; /* Ensures the image is not cropped */
-        }
-
-        /* Ensuring text inside card-body is centered both vertically and horizontally */
-        .card-body {
-            height: 100px;
             display: flex;
             justify-content: center;
-            align-items: center; /* Vertically and horizontally centered */
+            align-items: center;
+            z-index: 9999;
         }
 
-        /* Ensure the cards are above the main content */
-        .card-section {
+        /* Styling untuk tombol tutup */
+        #close-btn {
+            display: none;
+            padding: 10px 20px;
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
             margin-top: 20px;
+        }
+
+        /* Styling untuk Card */
+        .card-body {
+            text-align: center;
+            vertical-align: middle;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* Styling gambar */
+        .card-img-top {
+            max-height: 200px;
+            object-fit: contain;
+        }
+
+        /* Styling untuk Video Message */
+        .video-message {
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
-    <!-- Pop-up video -->
-    <div id="popup-video" class="popup">
-        <div class="popup-content">
-            <!-- Video Message -->
+
+    <!-- Popup Video -->
+    <div id="popup-video">
+        <div style="background-color: white; padding: 20px; border-radius: 8px; text-align: center;">
             <div class="video-message">
-                Hai Sayang, kamu harus menonton sampai selesai lagu ini, setelah itu ada tombol yang harus kamu pencet untuk mengarahkan kamu ke tampilan selanjutnya.
+                <p><b>Hai Sayang, kamu harus menonton sampai selesai lagu ini, setelah itu ada tombol yang harus kamu pencet untuk mengarahkan kamu ke tampilan selanjutnya.</b></p>
             </div>
-            <!-- Video Embed with Autoplay enabled -->
-            <iframe id="youtube-video" width="100%" height="315" 
-                src="https://www.youtube.com/embed/nshdkoeu_fY?autoplay=1&enablejsapi=1" 
-                title="YouTube video player" frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-            </iframe>
-            <button id="close-btn" class="close-btn">Fellin Sayang, tutup video ini!</button>
+            <!-- YouTube Video -->
+            <div id="youtube-video"></div>
+
+            <!-- Tombol Tutup Video -->
+            <button id="close-btn" class="btn btn-primary">Tutup Video</button>
         </div>
     </div>
 
-    <!-- Main content after popup -->
-    <div id="main-content">
-        <header class="bg-danger text-white text-center py-5">
-            <div class="container">
-                <h1><b>Cinta Sejati</b> 💖</h1>
-                <p>Makna dibalik cinta sejati adalah: kesetiaan, pengertian, kebahagiaan, dan komitmen.</p>
-                <p>Sayang, setiap detik aku semakin yakin kalau cinta kita tuh nggak biasa. Seperti yang ada di lagu ini, <b>"Bukan Cinta Biasa, yang kumiliki untukmu."</b> Cinta ini tulus banget, lebih dari sekadar kata-kata. Kamu tuh alasan kenapa aku bisa ngerasain kebahagiaan yang sebenar-benarnya. Nggak ada yang bisa gantiin perasaan ini, karena cintaku buat kamu itu nggak terbatas. Makasih sudah jadi bagian dari hidupku, mengisi hati ini dengan kebahagiaan yang nggak terungkapin. 💖</p>
-            </div>
-        </header>
+    <!-- Main Content -->
+    <div id="main-content" style="display: none;">
+        <div class="container mt-5">
+            <div class="row">
+                <!-- Cinta Sejati Card -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="https://static8.depositphotos.com/1560516/1027/v/450/depositphotos_10273879-stock-illustration-man-woman-and-love-tree.jpg" class="card-img-top" alt="Cinta Sejati">
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Cinta Sejati</b></h5>
+                            <p class="card-text">Makna cinta sejati adalah <b>kesetiaan, kebahagiaan, dan pengorbanan tulus</b> yang tak tergantikan. Cinta sejati adalah cinta yang tidak mengharapkan balasan.</p>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- Card section moved to be right after the header -->
-        <section class="card-section py-5">
-            <div class="container">
-                <div class="row">
-                    <!-- Image Card 1 - Cinta dan Pasangan -->
-                    <div class="col-md-4 mb-4">
-                        <div class="card text-center">
-                            <img src="https://static8.depositphotos.com/1560516/1027/v/450/depositphotos_10273879-stock-illustration-man-woman-and-love-tree.jpg" class="card-img-top" alt="Cinta dan Pasangan">
-                            <div class="card-body">
-                                <p class="card-text"><b>Cinta Sejati</b> adalah pengertian, kebahagiaan, dan kesetiaan.</p>
-                            </div>
+                <!-- Bunga Untukmu Card -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="https://st4.depositphotos.com/13349494/23991/i/600/depositphotos_239918930-stock-photo-top-view-beautiful-tender-carnation.jpg" class="card-img-top" alt="Bunga Untukmu">
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Bunga Untukmu</b></h5>
+                            <p class="card-text">Bunga yang indah adalah lambang kasih sayang yang tumbuh dengan penuh keikhlasan dan pengorbanan. Cinta yang mekar seperti bunga yang selalu menyebarkan keindahan.</p>
                         </div>
                     </div>
-                    <!-- Image Card 2 - Bunga -->
-                    <div class="col-md-4 mb-4">
-                        <div class="card text-center">
-                            <img src="https://st4.depositphotos.com/13349494/23991/i/600/depositphotos_239918930-stock-photo-top-view-beautiful-tender-carnation.jpg" class="card-img-top" alt="Bunga">
-                            <div class="card-body">
-                                <p class="card-text"><b>Cinta Sejati</b> adalah kasih sayang tanpa syarat.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Image Card 3 - Cokelat -->
-                    <div class="col-md-4 mb-4">
-                        <div class="card text-center">
-                            <img src="https://st2.depositphotos.com/4489556/6791/i/600/depositphotos_67918071-stock-photo-valentines-day-chocolates.jpg" class="card-img-top" alt="Cokelat">
-                            <div class="card-body">
-                                <p class="card-text"><b>Cinta Sejati</b> adalah kebahagiaan yang abadi.</p>
-                            </div>
+                </div>
+
+                <!-- Cokelat Manis Card -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="https://st2.depositphotos.com/4489556/6791/i/600/depositphotos_67918071-stock-photo-valentines-day-chocolates.jpg" class="card-img-top" alt="Cokelat Manis">
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Cokelat Manis</b></h5>
+                            <p class="card-text">Cokelat manis adalah simbol kebahagiaan dalam setiap momen yang dibagikan bersama orang tercinta. Seperti cinta kita yang manis dan penuh rasa kasih sayang.</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <section class="py-5">
-            <div class="container">
-                <h3>Ya, kurang lebih sih sama hehe, kalau itu kata Chat GPT, kalau kata aku.....</h3>
-                <p>
-                    Karena aku suka sama kamu ditambah lagi sayang, tapi kamu juga sayang sama aku, dan membutuhkan aku, mau memiliki aku sebagai laki-laki yang cuma satu dan satu-satunya, aku tambah sayang. Ingat ya sayang, berbeda agama memang jadi halangan, tapi berhubungan bukan jadi halangan, suatu saat nanti akan ada pagar yang harus kita hadapi dan apapun keputusannya kita harus berhubungan baik layaknya manusia biasa tapi kita spesial hehehe. Untuk saat ini ingat saja KITA SAMA-SAMA JALAN DAN BERSAMA DAN SAYANG SATU SAMA LAIN.
-                </p>
-                <p>
-                    Untuk lagunya karena aku suka senandungnya aja, dan memang kita harus buat cinta kita cinta yang tidak biasa, yang bukan hanya sekedar kata-kata juga, tapi juga harus tindakan yang baik dan menyayangi satu sama lain, harus memiliki kebahagiaan juga satu sama lain kita. Makasih udah berjalan 7 bulan 7 hari, sudah menemani aku sayang. Kita akan bertemu suatu saat nanti, YAKINLAH!!!!! Aku akan memelukmu setidaknya SEKALI SAJA AKU MEMELUKMU, I LOVE YOU EVELINIA FELLIN, cayang ku tinta ku >_<
-                </p>
-            </div>
-        </section>
-
-        <footer class="bg-danger text-white text-center py-3">
-            <div class="container">
-                <p>© 2025 Dibuat dengan cinta dari Gerlando 💖</p>
-            </div>
-        </footer>
+        </div>
     </div>
-
-    <!-- Bootstrap JS & Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 
     <!-- YouTube Iframe API -->
     <script>
@@ -169,36 +120,38 @@
         tag.src = "https://www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    
+
         // Create a new YouTube player after the API code downloads.
         var player;
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('youtube-video', {
+                videoId: 'nshdkoeu_fY',
                 events: {
                     'onStateChange': onPlayerStateChange
                 }
             });
         }
-    
+
         // This function is called when the player state changes
         function onPlayerStateChange(event) {
-            // If video has finished playing
             if (event.data == YT.PlayerState.ENDED) {
-                // Show the close button when the video ends
                 document.getElementById('close-btn').style.display = 'block';
             }
         }
-    
+
         // Function to handle closing the popup and showing the main content
         document.getElementById('close-btn').addEventListener('click', function() {
-            // Hide popup and show main content
             document.getElementById('popup-video').style.display = 'none';
             document.getElementById('main-content').style.display = 'block';
-    
+
             // Restart the video when closing the popup
             player.seekTo(0);
-            player.playVideo();  // Play video again after closing the popup
+            player.playVideo();
         });
     </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
